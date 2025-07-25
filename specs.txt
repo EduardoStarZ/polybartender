@@ -1,0 +1,16 @@
+crate: i3ipc rs
+
+main idea:
+
+Initiate all bars in polybar, via a config file, 
+hide all that aren't "default", collect the PID 
+for each one of them.
+
+Listen to changes in i3, and if the change is a window one, read it and:
+
+1) show the dummy bar for spacing
+2) show the title bar
+3) wait an X amount of time
+4) hide both bars
+
+The creation of bars must be done via child processes. 
