@@ -2,7 +2,11 @@ use i3ipc::{I3EventListener,
 Subscription,
 event::{Event, inner::WindowChange}};
 
+use polybartender;
+
 fn main() {
+    println!("{}", polybartender::runner::launch_polybar(vec![String::from("dummyb"), String::from("titleb")])); 
+
     let mut rx : I3EventListener = I3EventListener::connect().unwrap();
 
     rx.subscribe(&[Subscription::Window]).unwrap();
