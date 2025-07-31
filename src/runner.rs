@@ -1,14 +1,14 @@
-use std::process::Command;
+use std::process::{Child, Command};
 
-pub fn launch_polybar(bar : String) -> u32 {
+pub fn launch_polybar(bar : String) -> Child {
     let child = match Command::new("polybar")
         .arg(bar)
         .spawn() {
             Ok(value) => value,
-            Err(_) => return 0
+            Err(_) => panic!("Polybar could not be executed")
         };
 
-    return child.id();
+    return child;
 }
 
 pub fn bar_command(bar: u32, action: String) -> bool {
